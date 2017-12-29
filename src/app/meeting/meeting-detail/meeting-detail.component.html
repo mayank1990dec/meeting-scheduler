@@ -1,0 +1,87 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <h4 class="title">Meeting Details</h4>
+          </div>
+          <div class="content">
+            <form>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Agenda</label>
+                    <div class="form-control meeting-form">
+                      {{meeting.agenda}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Location </label>
+                    <div class="form-control meeting-form">
+                      {{meeting.location}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Scheduled By </label>
+                    <div class="form-control meeting-form">
+                      {{meeting.scheduledBy}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="form-group">
+                    <label>Time </label>
+                    <div class="form-control meeting-form">
+                      {{meeting.time | date: 'dd/MM/yyyy'}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>duration </label>
+                    <div class="form-control meeting-form">
+                      {{meeting.duration}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Invitees</label>
+                    <textarea rows="5" class="form-control" placeholder="Here can be your description" readonly value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                  </div>
+                </div>
+              </div> -->
+              <div class="panel panel-default">
+                <div class="panel-body invitees">
+
+                  <div *ngFor="let item of meeting.invitees" class="chip">
+                    {{item}}
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

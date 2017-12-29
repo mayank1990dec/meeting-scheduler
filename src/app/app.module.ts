@@ -20,9 +20,14 @@ import { IconsComponent } from './icons/icons.component';
 import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
+import { MeetingComponent } from './meeting/meeting.component';
+import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
+import { MeetingGridComponent } from './meeting/meeting-grid/meeting-grid.component';
+// import { ChipsModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
+
     AppComponent,
     HomeComponent,
     UserComponent,
@@ -31,7 +36,10 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent
+    UpgradeComponent,
+    MeetingComponent,
+    MeetingDetailComponent,
+    MeetingGridComponent
 
   ],
   imports: [
