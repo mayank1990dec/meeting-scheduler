@@ -13,6 +13,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { MeetingComponent } from 'app/meeting/meeting.component';
 import { MeetingDetailComponent } from 'app/meeting/meeting-detail/meeting-detail.component';
 import { MeetingGridComponent } from 'app/meeting/meeting-grid/meeting-grid.component';
+import { ScheduleComponent } from 'app/schedule/schedule.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,8 @@ const routes: Routes = [
   { path: 'maps', component: MapsComponent },
   { path: 'notifications', component: NotificationsComponent },
   { path: 'upgrade', component: UpgradeComponent },
+  { path: 'schedule', component: ScheduleComponent },
+
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 

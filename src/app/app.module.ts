@@ -9,7 +9,6 @@ import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { LbdModule } from './lbd/lbd.module';
-
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
@@ -23,11 +22,16 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { MeetingComponent } from './meeting/meeting.component';
 import { MeetingDetailComponent } from './meeting/meeting-detail/meeting-detail.component';
 import { MeetingGridComponent } from './meeting/meeting-grid/meeting-grid.component';
+import { ScheduleComponent } from 'app/schedule/schedule.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
 // import { ChipsModule } from 'primeng/primeng';
 
 @NgModule({
   declarations: [
-
+    ScheduleComponent,
     AppComponent,
     HomeComponent,
     UserComponent,
@@ -39,7 +43,10 @@ import { MeetingGridComponent } from './meeting/meeting-grid/meeting-grid.compon
     UpgradeComponent,
     MeetingComponent,
     MeetingDetailComponent,
-    MeetingGridComponent
+    MeetingGridComponent,
+    AuthSignUpComponent,
+    SignUpComponent,
+    LoginComponent
 
   ],
   imports: [
@@ -51,7 +58,8 @@ import { MeetingGridComponent } from './meeting/meeting-grid/meeting-grid.compon
     SidebarModule,
     RouterModule,
     AppRoutingModule,
-    LbdModule
+    LbdModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
