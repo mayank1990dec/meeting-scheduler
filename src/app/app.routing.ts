@@ -1,3 +1,5 @@
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,8 +38,10 @@ const routes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'upgrade', component: UpgradeComponent },
   { path: 'schedule', component: ScheduleComponent },
+  { path: 'logIn', component: LoginComponent },
+  { path: 'signUp', component: SignUpComponent },
+  { path: '', redirectTo: '/signUp', pathMatch: 'full' }
 
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({

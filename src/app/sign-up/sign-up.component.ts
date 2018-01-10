@@ -1,5 +1,7 @@
+import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,22 +13,31 @@ export class SignUpComponent implements OnInit {
 
   user: User = new UserSignUp();
 
-  temp: any;
-
-  constructor() { }
-
+  constructor(private userService: UserService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(f) {
-    console.log('In sign up submit');
+
     console.log(this.user);
-    // console.log(this.temp);
+    let status: boolean;
+    this.userService.addUser(this.user)
+      .subscribe((status) => {
+        console.log(status);
+        if (status === 'Success') {
+          this.router.navigate(['logIn']);
+        }
+      },
+      error => {
+        console.log(error);
+      }
+      );
 
 
   }
-
 }
 
 class UserSignUp implements User {

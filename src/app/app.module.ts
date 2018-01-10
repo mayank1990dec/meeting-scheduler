@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
+import { AfterLogInComponent } from './after-log-in/after-log-in.component';
 // import { ChipsModule } from 'primeng/primeng';
 
 @NgModule({
@@ -46,7 +48,8 @@ import { LoginComponent } from './login/login.component';
     MeetingGridComponent,
     AuthSignUpComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    AfterLogInComponent
 
   ],
   imports: [
@@ -61,7 +64,7 @@ import { LoginComponent } from './login/login.component';
     LbdModule,
     NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
