@@ -16,31 +16,50 @@ import { MeetingComponent } from 'app/meeting/meeting.component';
 import { MeetingDetailComponent } from 'app/meeting/meeting-detail/meeting-detail.component';
 import { MeetingGridComponent } from 'app/meeting/meeting-grid/meeting-grid.component';
 import { ScheduleComponent } from 'app/schedule/schedule.component';
+import { LandingComponent } from 'app/landing/landing.component';
 
 const routes: Routes = [
-  {
-    path: 'meeting', component: MeetingComponent,
-    children: [
-      {
-        path: 'meetingGrid', component: MeetingGridComponent,
-        children: [
-          { path: 'meetingDetail', component: MeetingDetailComponent }
-        ]
-      }
-    ]
-  },
-  { path: 'dashboard', component: HomeComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'table', component: TablesComponent },
-  { path: 'typography', component: TypographyComponent },
-  { path: 'icons', component: IconsComponent },
-  { path: 'maps', component: MapsComponent },
-  { path: 'notifications', component: NotificationsComponent },
-  { path: 'upgrade', component: UpgradeComponent },
-  { path: 'schedule', component: ScheduleComponent },
+
+
   { path: 'logIn', component: LoginComponent },
   { path: 'signUp', component: SignUpComponent },
-  { path: '', redirectTo: '/signUp', pathMatch: 'full' }
+  {
+    path: 'landing', component: LandingComponent,
+    children: [
+      { path: 'user', component: UserComponent, outlet: 'landing' },
+      { path: 'dashboard', component: HomeComponent, outlet: 'landing' },
+      { path: 'table', component: TablesComponent, outlet: 'landing' },
+      { path: 'typography', component: TypographyComponent, outlet: 'landing' },
+      { path: 'icons', component: IconsComponent, outlet: 'landing' },
+      { path: 'maps', component: MapsComponent, outlet: 'landing' },
+      { path: 'notifications', component: NotificationsComponent, outlet: 'landing' },
+      { path: 'upgrade', component: UpgradeComponent, outlet: 'landing' },
+      { path: 'schedule', component: ScheduleComponent, outlet: 'landing' },
+      {
+        path: 'meeting', component: MeetingComponent, outlet: 'landing',
+        children: [
+          {
+            path: 'meetingGrid', component: MeetingGridComponent,
+            children: [
+              { path: 'meetingDetail', component: MeetingDetailComponent }
+            ]
+          }
+        ]
+      }
+
+
+    ]
+  },
+
+
+
+
+
+
+
+  { path: '', redirectTo: '/landing', pathMatch: 'full' }
+
+
 
 ];
 

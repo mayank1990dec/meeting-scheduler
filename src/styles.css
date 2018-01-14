@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+.ui-widget {
+    background-color: white;
+}
+
+
+/* .form-control {
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    color: #565656;
+    padding: 8px 12px !important;
+    height: 40px;
+    box-shadow: none;
+} */
+
+.ui-calendar {
+    border: 1px solid transparent;
+    padding: 0;
+}

@@ -9,113 +9,119 @@
           <div class="content">
             <form (ngSubmit)="onSubmit(f)" #f="ngForm">
               <div class="row">
-                <div class="col-md-5">
+
+                <div class="col-md-4">
                   <div class="form-group">
                     <label>Location</label>
-
                     <div>
-                      <select (change)="onSelect($event.target.value)" [(ngModel)]="templocation" [ngModelOptions]="{standalone: true}">
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="tempLocation" [ngModelOptions]="{standalone: true}">
                         <option *ngFor="let location of locations">
                           {{location}}
                         </option>
                       </select>
                     </div>
-
-                    <!-- 
-                    <div>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                          <p>
-                            Location
-                            <b class="caret"></b>
-                          </p>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li *ngFor="let location of locations">
-                            <a href="#"> {{location}}</a>
-                          </li>
-
-                        </ul>
-                      </li>
-
-                    </div> -->
-
-
-                    <!-- <div ngbDropdown class="d-inline-block">
-                        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
-                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                          <button class="dropdown-item">Action - 1</button>
-                          <button class="dropdown-item">Another Action</button>
-                          <button class="dropdown-item">Something else is here</button>
-                        </div>
-                      </div> -->
-
-
-
-
-
-                    <!-- <input type="text" class="form-control" disabled placeholder="Company" value="Creative Code Inc."> -->
                   </div>
                 </div>
-                <div class="col-md-3">
+
+
+                <div class="col-md-4">
                   <div class="form-group">
                     <label>Building </label>
-                    <input type="text" class="form-control" placeholder="Username" value="michael23">
+                    <div>
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="tempBuilding" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let building of buildings">
+                          {{building}}
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
+
+
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="">Room</label>
-                    <input type="email" class="form-control" placeholder="Email">
+                    <div>
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="tempRoom" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let room of rooms">
+                          {{room}}
+                        </option>
+                      </select>
+                    </div>
+
                   </div>
                 </div>
               </div>
+
+
+              <!-- datepicker -->
+
+              <!-- <input type="time" class="form-control" name="usr_time"> -->
+
+
+
 
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
                     <label>Date</label>
-                    <input type="text" class="form-control" placeholder="Company" value="Mike">
+                    <!-- <input type="text" class="form-control" placeholder="Last Name" value="Andrew"> -->
+                    <!-- <p-calendar [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></p-calendar> -->
+
+                    <p-calendar [(ngModel)]="date" styleClass="form-control" inputStyleClass="form-control" [ngModelOptions]="{standalone: true}"></p-calendar>
                   </div>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-2">
                   <div class="form-group">
                     <label>Time</label>
-                    <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                    <input type="time" class="form-control" name="usr_time" [(ngModel)]="time" [ngModelOptions]="{standalone: true}">
                   </div>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-2">
+
                   <div class="form-group">
                     <label>Duration</label>
-                    <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                    <div>
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="hr" [ngModelOptions]="{standalone: true}">
+                        <option *ngFor="let hr of hrs">
+                          {{hr}}
+                        </option>
+                      </select>
+                    </div>
                   </div>
                 </div>
+
               </div>
+
+              <!-- <button type="button" class="btn" (click)="debug()">Basic</button> -->
+
 
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Agenda</label>
-                    <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                    <input type="text" class="form-control" placeholder="Agenda" value="New projects ">
                   </div>
                 </div>
               </div>
 
-
+              <!-- Chips are used here  -->
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Invitees </label>
                     <div class="panel panel-default">
                       <div class="panel-body invitees">
-                        <!-- <div *ngFor="let item of meeting.invitees" class="chip">
-                          {{item}}
-                        </div> -->
+                        <p-chips [(ngModel)]="invitees" styleClass="ui-chips-token" [ngModelOptions]="{standalone: true}"></p-chips>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- <button type="button" class="btn" (click)="debug()">Basic</button> -->
 
               <div class="row">
                 <div class="col-md-12">
@@ -131,7 +137,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+
+      <!-- <div class="col-md-4">
         <div class="card card-user">
           <div class="image">
             <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
@@ -165,7 +172,14 @@
             </button>
           </div>
         </div>
-      </div>
+
+
+
+
+
+
+
+      </div> -->
     </div>
   </div>
 </div>

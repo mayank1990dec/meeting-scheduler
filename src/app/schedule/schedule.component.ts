@@ -1,15 +1,32 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core';
 
 @Component({
 
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.scss']
+  styleUrls: ['./schedule.component.scss'],
 })
 export class ScheduleComponent implements OnInit {
 
-  templocation = {};
 
+  date: any;
+  time: any = '00:00';
+  hr: any = 'hrs';
+  hrs: any = ['hrs', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+
+
+  tempLocation: any = 'Select City';
+  locations: any = ['Select City', 'Hyderabd', 'Bangalore'];
+
+  tempBuilding: any = 'Select Buiding';
+  buildings: any = ['Select Buiding', 'B4', 'B7'];
+
+
+  tempRoom: any = 'Select Room';
+  rooms: any = ['Select Room', 'Ajjoba', 'Bahura'];
+
+
+  invitees: any = ['mayank', 'shubham'];
 
   building = [{
     location: 'Hyderabad',
@@ -44,7 +61,7 @@ export class ScheduleComponent implements OnInit {
     }]
   }];
 
-  locations = this.building.map(item => item.location);
+  // locations = this.building.map(item => item.location);
 
   constructor() {
     console.log(this.locations);
@@ -55,6 +72,10 @@ export class ScheduleComponent implements OnInit {
   ngOnInit() {
   }
 
+  debug() {
+    console.log('show loaction');
+    console.log(this.time);
+  }
 
   onSubmit(form: ElementRef) {
     console.log(form);

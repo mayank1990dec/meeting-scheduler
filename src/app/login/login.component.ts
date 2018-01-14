@@ -40,9 +40,8 @@ export class LoginComponent implements OnInit {
 
 
         if (response.status === 200) {
-          // this.userService.
-          // const temp = response._body.toString();
-          // this.router.navigate(['todo', response.json().id]);
+
+          this.router.navigate(['landing']);
         }
       },
       error => {
