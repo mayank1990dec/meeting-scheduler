@@ -90,7 +90,10 @@
         </li>
         <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}}">
-            <a [routerLink]="['/landing','(landing:dashboard)']">
+            <a [routerLink]="[{ outlets: { secondary: [menuItem.path] } }]">
+                <!-- <a [routerLink]="[{outlets: { primary: '/landing', dashboard: null }}]"> -->
+                <!-- <a [routerLink]="['/landing', '(landing:dashboard)']"> -->
+
                 <i class="{{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>

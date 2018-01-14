@@ -21,22 +21,22 @@ import { LandingComponent } from 'app/landing/landing.component';
 const routes: Routes = [
 
 
-  { path: 'logIn', component: LoginComponent },
-  { path: 'signUp', component: SignUpComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignUpComponent },
   {
     path: 'landing', component: LandingComponent,
     children: [
-      { path: 'user', component: UserComponent, outlet: 'landing' },
-      { path: 'dashboard', component: HomeComponent, outlet: 'landing' },
-      { path: 'table', component: TablesComponent, outlet: 'landing' },
-      { path: 'typography', component: TypographyComponent, outlet: 'landing' },
-      { path: 'icons', component: IconsComponent, outlet: 'landing' },
-      { path: 'maps', component: MapsComponent, outlet: 'landing' },
-      { path: 'notifications', component: NotificationsComponent, outlet: 'landing' },
-      { path: 'upgrade', component: UpgradeComponent, outlet: 'landing' },
-      { path: 'schedule', component: ScheduleComponent, outlet: 'landing' },
+      { path: 'user', component: UserComponent, outlet: 'secondary' },
+      { path: 'dashboard', component: HomeComponent, outlet: 'secondary' },
+      { path: 'table', component: TablesComponent, outlet: 'secondary' },
+      { path: 'typography', component: TypographyComponent, outlet: 'secondary' },
+      { path: 'icons', component: IconsComponent, outlet: 'secondary' },
+      { path: 'maps', component: MapsComponent, outlet: 'secondary' },
+      { path: 'notifications', component: NotificationsComponent, outlet: 'secondary' },
+      { path: 'upgrade', component: UpgradeComponent, outlet: 'secondary' },
+      { path: 'schedule', component: ScheduleComponent, outlet: 'secondary' },
       {
-        path: 'meeting', component: MeetingComponent, outlet: 'landing',
+        path: 'meeting', component: MeetingComponent, outlet: 'secondary',
         children: [
           {
             path: 'meetingGrid', component: MeetingGridComponent,
@@ -46,8 +46,6 @@ const routes: Routes = [
           }
         ]
       }
-
-
     ]
   },
 
