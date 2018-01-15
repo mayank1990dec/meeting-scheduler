@@ -14,7 +14,7 @@
                   <div class="form-group">
                     <label>Location</label>
                     <div>
-                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="tempLocation" [ngModelOptions]="{standalone: true}">
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="meeting.location" [ngModelOptions]="{standalone: true}">
                         <option *ngFor="let location of locations">
                           {{location}}
                         </option>
@@ -28,7 +28,7 @@
                   <div class="form-group">
                     <label>Building </label>
                     <div>
-                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="tempBuilding" [ngModelOptions]="{standalone: true}">
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="meeting.building" [ngModelOptions]="{standalone: true}">
                         <option *ngFor="let building of buildings">
                           {{building}}
                         </option>
@@ -42,7 +42,7 @@
                   <div class="form-group">
                     <label for="">Room</label>
                     <div>
-                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="tempRoom" [ngModelOptions]="{standalone: true}">
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="meeting.room" [ngModelOptions]="{standalone: true}">
                         <option *ngFor="let room of rooms">
                           {{room}}
                         </option>
@@ -68,14 +68,14 @@
                     <!-- <input type="text" class="form-control" placeholder="Last Name" value="Andrew"> -->
                     <!-- <p-calendar [(ngModel)]="date" [ngModelOptions]="{standalone: true}"></p-calendar> -->
 
-                    <p-calendar [(ngModel)]="date" styleClass="form-control" inputStyleClass="form-control" [ngModelOptions]="{standalone: true}"></p-calendar>
+                    <p-calendar [(ngModel)]="meeting.date" styleClass="form-control" inputStyleClass="form-control" [ngModelOptions]="{standalone: true}"></p-calendar>
                   </div>
                 </div>
 
                 <div class="col-md-2">
                   <div class="form-group">
                     <label>Time</label>
-                    <input type="time" class="form-control" name="usr_time" [(ngModel)]="time" [ngModelOptions]="{standalone: true}">
+                    <input type="time" class="form-control" name="usr_time" [(ngModel)]="meeting.time" [ngModelOptions]="{standalone: true}">
                   </div>
                 </div>
 
@@ -84,7 +84,7 @@
                   <div class="form-group">
                     <label>Duration</label>
                     <div>
-                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="hr" [ngModelOptions]="{standalone: true}">
+                      <select (change)="onSelect($event.target.value)" class="form-control" [(ngModel)]="meeting.duration" [ngModelOptions]="{standalone: true}">
                         <option *ngFor="let hr of hrs">
                           {{hr}}
                         </option>
@@ -102,7 +102,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Agenda</label>
-                    <input type="text" class="form-control" placeholder="Agenda" value="New projects ">
+                    <input type="text" class="form-control" placeholder="Meeting's Agenda" [(ngModel)]="meeting.agenda" [ngModelOptions]="{standalone: true}">
                   </div>
                 </div>
               </div>
@@ -114,7 +114,7 @@
                     <label>Invitees </label>
                     <div class="panel panel-default">
                       <div class="panel-body invitees">
-                        <p-chips [(ngModel)]="invitees" styleClass="ui-chips-token" [ngModelOptions]="{standalone: true}"></p-chips>
+                        <p-chips [(ngModel)]="meeting.invitees" styleClass="ui-chips-token" [ngModelOptions]="{standalone: true}"></p-chips>
                       </div>
                     </div>
                   </div>
@@ -127,11 +127,11 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label>Meeting Description</label>
-                    <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                    <textarea rows="5" class="form-control" placeholder="Here can be your description" [(ngModel)]="meeting.description" [ngModelOptions]="{standalone: true}"></textarea>
                   </div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+              <button type="submit" class="btn btn-info btn-fill pull-right">Schedule</button>
               <div class="clearfix"></div>
             </form>
           </div>

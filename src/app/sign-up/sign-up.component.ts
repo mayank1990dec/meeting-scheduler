@@ -1,6 +1,6 @@
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
+import { IUser } from './user';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
 
 
-  user: User = new UserSignUp();
+  user: IUser = new User();
 
   constructor(private userService: UserService,
     private route: ActivatedRoute,
@@ -40,7 +40,7 @@ export class SignUpComponent implements OnInit {
   }
 }
 
-class UserSignUp implements User {
+class User implements IUser {
   constructor(
     public id?,
     public userName?,

@@ -1,3 +1,5 @@
+import { BookingService } from './../booking.service';
+import { IMeeting } from './meeting';
 import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,11 +11,12 @@ import { Component, OnInit, ElementRef, ViewEncapsulation } from '@angular/core'
 export class ScheduleComponent implements OnInit {
 
 
-  date: any;
+  date: any = Date.now;
   time: any = '00:00';
   hr: any = 'hrs';
-  hrs: any = ['hrs', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+  hrs: any = ['hrs', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13'];
 
+  meeting: IMeeting = new Meeting();
 
   tempLocation: any = 'Select City';
   locations: any = ['Select City', 'Hyderabd', 'Bangalore'];
@@ -63,7 +66,7 @@ export class ScheduleComponent implements OnInit {
 
   // locations = this.building.map(item => item.location);
 
-  constructor() {
+  constructor(private bookingService: BookingService) {
     console.log(this.locations);
   }
   onSelect(event) {
@@ -78,10 +81,31 @@ export class ScheduleComponent implements OnInit {
   }
 
   onSubmit(form: ElementRef) {
-    console.log(form);
+    console.log(this.meeting);
+    this.bookingService.addBooking(this.meeting)
+      .subscribe((status) => {
+        console.log(status);
 
-
-
+      },
+      error => {
+        console.log(error);
+      }
+      );
   }
 
+}
+
+
+class Meeting implements IMeeting {
+  constructor(
+    public scheduledById?,
+    public location?,
+    public building?,
+    public room?,
+    public date?,
+    public time?,
+    public duration?,
+    public agenda?,
+    public invitees?,
+    public description?) { }
 }

@@ -33,6 +33,7 @@ import { LandingComponent } from './landing/landing.component';
 import { Chips, ChipsModule } from 'primeng/primeng';
 import { CalendarModule } from 'primeng/primeng';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookingService } from 'app/booking.service';
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LbdModule,
     NgbModule.forRoot()
   ],
-  providers: [UserService],
+  providers: [UserService, BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
