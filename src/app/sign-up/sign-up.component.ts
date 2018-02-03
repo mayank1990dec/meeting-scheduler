@@ -1,7 +1,8 @@
 import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './user';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+import { EmailValidator } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,6 +14,8 @@ export class SignUpComponent implements OnInit {
 
   user: IUser = new User();
 
+  emailPattern = "^[^\s@]+@[^\s@]+\.[^\s@]{2,}$";
+
   constructor(private userService: UserService,
     private route: ActivatedRoute,
     private router: Router) { }
@@ -22,13 +25,24 @@ export class SignUpComponent implements OnInit {
 
   onSubmit(f) {
 
-    console.log(this.user);
+    console.log('Just before data in db');
+
+    // const navigationExtras: NavigationExtras = {
+    //   queryParams: { 'signUpFlag': true }
+    // };
+    // this.router.navigate(['login'], navigationExtras);
+
+
     let status: boolean;
     this.userService.addUser(this.user)
       .subscribe((status) => {
         console.log(status);
         if (status === 'Success') {
-          this.router.navigate(['logIn']);
+          const navigationExtras: NavigationExtras = {
+            queryParams: { 'signUpFlag': true }
+          };
+          this.router.navigate(['login'], navigationExtras);
+
         }
       },
       error => {

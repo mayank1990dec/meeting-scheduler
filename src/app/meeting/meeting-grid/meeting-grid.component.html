@@ -15,8 +15,22 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let row of tableData1.dataRows">
+                <tr *ngFor="let row of tableData1.dataRows" (click)="onRowSelect(row)">
+                  <!-- <td *ngFor="let cell of row">{{cell}}</td> -->
+                  <td>{{row[0]}}</td>
+                  <td>{{row[1]}}</td>
+                  <td>{{row[2]}}</td>
+                  <td>{{row[3]}}</td>
+                  <td>{{row[4]}}</td>
+
+
+
+                  <!-- <td *ngFor="let cell of row">{{cell}}</td>
+                  
                   <td *ngFor="let cell of row">{{cell}}</td>
+                  
+                  <td *ngFor="let cell of row">{{cell}}</td> -->
+
                   <td>
                     <button class="btn btn-primary">C</button>
                   </td>
@@ -26,11 +40,9 @@
                 </tr>
               </tbody>
             </table>
-
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

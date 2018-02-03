@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-7">
-    <app-meeting-grid></app-meeting-grid>
+    <app-meeting-grid (onMeetingIdEvent)="onMeetingIdEvent($event)"></app-meeting-grid>
 
   </div>
   <div class="col-md-5">
-    <app-meeting-detail> </app-meeting-detail>
+    <app-meeting-detail [meetingId]="meetingId"> </app-meeting-detail>
   </div>
 </div>

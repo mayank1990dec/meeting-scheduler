@@ -19,28 +19,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  // onSubmit() {
-  //   console.log('in submit');
-  //   console.log(this.userName);
-  //   console.log(this.password);
-
-
-  // }
 
   onSubmit() {
-    console.log('In sign in');
-
-    //   console.log(this.userName);
-    //   console.log(this.password);
-
     this.userService.login(this.userName, this.password)
       .subscribe(response => {
-        console.log(response);
-        console.log(response.id);
-
-
         if (response.status === 200) {
-
           this.router.navigate(['landing']);
         }
       },
@@ -48,7 +31,6 @@ export class LoginComponent implements OnInit {
         console.log(error);
       }
       );
-    // this.authFlag.emit(true);
 
 
   }

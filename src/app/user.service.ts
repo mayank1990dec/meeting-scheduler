@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class UserService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
-
+  loggedInUser: any;
+  loggedInStatus: boolean = false;
 
   constructor(private http: Http) { }
 
@@ -19,6 +20,8 @@ export class UserService {
       .map((response: Response) => {
         console.log(response);
         // const status = response.text();
+        this.loggedInUser = response.json().id;
+        this.loggedInStatus = true;
         return response;
       }
       )
@@ -45,6 +48,9 @@ export class UserService {
       );
   }
 
+  isAuthenticated() {
+    return this.loggedInStatus !== false;
+  }
 
 
 

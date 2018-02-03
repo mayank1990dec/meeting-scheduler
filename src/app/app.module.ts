@@ -1,17 +1,16 @@
+import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { LbdModule } from './lbd/lbd.module';
 import { AppComponent } from './app.component';
-
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { TablesComponent } from './tables/tables.component';
@@ -73,7 +72,7 @@ import { BookingService } from 'app/booking.service';
     LbdModule,
     NgbModule.forRoot()
   ],
-  providers: [UserService, BookingService],
+  providers: [UserService, BookingService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
+import { BookingService } from 'app/booking.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 declare interface TableData {
   headerRow: string[];
   dataRows: string[][];
 }
+
 
 @Component({
   selector: 'app-meeting-grid',
@@ -13,10 +16,31 @@ declare interface TableData {
 export class MeetingGridComponent implements OnInit {
   public tableData1: TableData;
   public tableData2: TableData;
+  dataRows = [];
+  @Output() onMeetingIdEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private bookingService: BookingService) { }
 
   ngOnInit() {
+    this.bookingService.getAllUserBookings()
+      .subscribe((response) => {
+        console.log(response);
+        const jsonResponse = response.json();
+
+        for (let i = 0; i < jsonResponse.length; i++) {
+          this.tableData1.dataRows[i][0] = (i + 1).toString();
+          this.tableData1.dataRows[i][1] = jsonResponse[i].scheduledById;
+          this.tableData1.dataRows[i][2] = jsonResponse[i].description;
+          this.tableData1.dataRows[i][3] = jsonResponse[i].date;
+          this.tableData1.dataRows[i][4] = jsonResponse[i].duration;
+          this.tableData1.dataRows[i][5] = jsonResponse[i]._id;
+        }
+        console.log(this.tableData1);
+      },
+      error => {
+        console.log(error);
+      }
+      );
 
     this.tableData1 = {
       headerRow: ['ID', 'Scheduled By', 'Description', 'Start Time', 'Duration'],
@@ -28,4 +52,9 @@ export class MeetingGridComponent implements OnInit {
     };
   }
 
+  onRowSelect(row) {
+    this.onMeetingIdEvent.emit(row[5]);
+  }
 }
+
+

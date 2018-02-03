@@ -46,7 +46,7 @@
                   <div class="form-group">
                     <label>Time </label>
                     <div class="form-control meeting-form">
-                      {{meeting.time | date: 'dd/MM/yyyy'}}
+                      {{meeting.date | date: 'dd/MM/yyyy'}}
                     </div>
                   </div>
                 </div>
@@ -74,9 +74,8 @@
                 <label>Invitees </label>
                 <div class="panel panel-default">
                   <div class="panel-body invitees">
-                    <!-- <div *ngFor="let item of meeting.invitees" class="chip">
-                      {{item}}
-                    </div> -->
+                    <p-chips [(ngModel)]="meeting.invitees" styleClass="ui-chips-token" [ngModelOptions]="{standalone: true}"></p-chips>
+
                   </div>
                 </div>
               </div>

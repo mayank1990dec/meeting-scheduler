@@ -4,42 +4,60 @@
       <div class="panel-heading">
         <div class="panel-title">Sign Up</div>
         <div style="float:right; font-size: 85%; position: relative; top:-10px">
-          <a id="signinlink" href="#" onclick="signIn()">Sign In</a>
+          <!-- <a id="signinlink" href="#" onclick="signIn()">Sign In</a> -->
+          <a [routerLink]="['/login']" [queryParams]="{signUpFlag : true}">Sign In</a>
+
         </div>
       </div>
+
+
+
+
+
       <div class="panel-body">
         <form id="signupform" class="form-horizontal" role="form" (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-          <div id="signupalert" style="display:none" class="alert alert-danger">
-            <p>Error:</p>
-            <span></span>
-          </div>
+
 
           <div class="form-group">
             <label for="email" class="col-md-3 control-label">Email</label>
             <div class="col-md-9">
-              <input type="text" class="form-control" name="email" [(ngModel)]="user.email" placeholder="Email Address">
+              <input type="email" required class="form-control" name="email" [(ngModel)]="user.email" placeholder="Email Address" #email="ngModel"
+                [(pattern)]="emailPattern">
+              <span class="help-block" *ngIf="email.touched && !email.valid">Please enter a valid email !</span>
             </div>
           </div>
 
           <div class="form-group">
             <label for="firstname" class="col-md-3 control-label">First Name</label>
             <div class="col-md-9">
-              <input type="text" class="form-control" name="firstname" [(ngModel)]="user.firstName" placeholder="First Name">
+              <input type="text" required class="form-control" name="firstname" [(ngModel)]="user.firstName" placeholder="First Name" #firstname="ngModel">
+              <span class="help-block" *ngIf="firstname.touched && !firstname.valid">Please enter firstname !</span>
             </div>
           </div>
           <div class="form-group">
             <label for="lastname" class="col-md-3 control-label">Last Name</label>
             <div class="col-md-9">
-              <input type="text" class="form-control" name="lastname" [(ngModel)]="user.lastName" placeholder="Last Name">
+              <input type="text" required class="form-control" name="lastname" [(ngModel)]="user.lastName" placeholder="Last Name" #lastname="ngModel">
+              <span class="help-block" *ngIf="lastname.touched && !lastname.valid">Please enter lastname !</span>
+
             </div>
           </div>
+
+
+
+
           <div class="form-group">
             <label for="password" class="col-md-3 control-label">Password</label>
             <div class="col-md-9">
-              <input type="password" class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password">
+              <input type="password" required class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password" #password="ngModel">
+              <span class="help-block" *ngIf="password.touched && !password.valid">Please enter valid password !</span>
+
             </div>
           </div>
+
+
+
 
           <div class="form-group">
             <label for="address" class="col-md-3 control-label">Permanant Address</label>
@@ -85,22 +103,16 @@
           </div>
 
           <div class="form-group">
-            <!-- Button -->
-            <div class="col-md-offset-3 col-md-9">
-              <button id="btn-signup" type="submit" class="btn btn-info">
+            <div class="col-md-offset-3 col-md-12">
+              <button id="btn-signup" type="submit" class="btn btn-info" [disabled]="!f.valid">
                 <i class="icon-hand-right"></i> Sign Up</button>
-              <span style="margin-left:8px;">or</span>
-            </div>
-          </div>
-
-          <div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
-
-            <div class="col-md-offset-3 col-md-9">
+              <span style="margin-left:8px;margin-right :8px;">OR</span>
               <button id="btn-fbsignup" type="button" class="btn btn-primary">
                 <i class="icon-facebook"></i>   Sign Up with Facebook</button>
             </div>
-
           </div>
+
+
         </form>
       </div>
     </div>

@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MeetingComponent implements OnInit {
 
+  meetingId: string;
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
+  onMeetingIdEvent(meetingId: string) {
+    console.log(meetingId);
+    this.meetingId = meetingId;
+  }
 }
